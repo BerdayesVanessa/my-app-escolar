@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const initailForm = {
   name: "",
@@ -32,6 +33,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
       ...form,
       [e.target.name]: e.target.value
     });
+    console.log(form)
   };
 
   const handleSubmit = (e) => {
@@ -143,6 +145,52 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
             </div>
 
             <div class="col-3">
+                <div class="form-group">
+                  {" "}
+                  Gênero
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      onChange={handleChange}
+                      type="radio"
+                      name="genero"
+                      id="feminino"
+                      value="femenino"
+                      checked
+                    ></input>
+                    <label class="form-check-label" for="feminino">
+                      Femenino
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      onChange={handleChange}
+                      type="radio"
+                      name="genero"
+                      id="masculino"
+                      value="option2"
+                    ></input>
+                    <label className="form-check-label" htmlFor="masculino">
+                      Masculino
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      onChange={handleChange}
+                      type="radio"
+                      name="genero"
+                      id="informar"
+                      value="informar"
+                    ></input>
+                    <label class="form-check-label" for="informar">
+                      Desejo não informar
+                    </label>
+                  </div>
+                </div>
+              </div>
+            {/* <div class="col-3">
               <div class="form-group">
                 <label for="name">
                   Gênero
@@ -156,7 +204,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                   />
                 </label>
               </div>
-            </div>
+            </div> */}
 
             <div class="col-3">
               <div class="form-group">

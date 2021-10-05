@@ -1,5 +1,6 @@
 import React from "react";
 import CrudTableRow from "./CrudTableRow";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const CrudTable = ({ data, setDataToEdit, deleteData }) => {
   return (

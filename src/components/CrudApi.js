@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { HashRouter, NavLink, Route, Switch } from "react-router-dom";
-import { helpHttp } from "../helpers/helpHttp";
+import { helpHttp } from "./helpers/helpHttp";
 import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
 import Loader from "./Loader";
 import Message from "./Message";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const CrudApi = () => {
   const [db, setDb] = useState(null);
@@ -100,7 +101,6 @@ const CrudApi = () => {
     <div>
       <HashRouter basename="lista">
         <header>
-          
           <nav class="navbar navbar-dark bg-dark">
           <nav class="nav nav-pills flex-column flex-sm-row justify-content-end">
             <NavLink to="/" activeClassName="active">
