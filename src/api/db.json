@@ -1,0 +1,32 @@
+{
+    "dadospessoais": [
+      {
+        "id": 1,
+        "name": "Abelardo",
+        "cpf": "543.782.467-43",
+        "nascimento": "11/08/1986",
+        "pais": "Venezuela",
+        "genero": "masculino",
+        "email": "john@doe.email",
+        "telefone": "1111-1111",
+        "localidade": "Valinhos",
+        "uf": "São Paulo",
+        "escolaridade": "Superior"
+       
+      },
+      {
+        "id": 1,
+        "name": "Gilberto",
+        "cpf": "312.741.237-43",
+        "nascimento": "28/01/1981",
+        "pais": "Colombia",
+        "genero": "masculino",
+        "email": "carlos.email",
+        "telefone": "1111-1111",
+        "localidade": "Manaus",
+        "uf": "São Paulo",
+        "escolaridade": "Superior"
+       
+      }
+    ]
+  }
