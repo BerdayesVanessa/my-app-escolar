@@ -7,7 +7,7 @@ export default function Footer(){
             <footer className="container-fluid footer"> </footer>
 
             <div class="container-fluid copyright">
-                <h6>© 2021 Copyright:  VKGA Todos os direitos reservados </h6>
+                <h6>© 2021 Copyright:  VGKA Todos os direitos reservados </h6>
             </div>
             </div>
     )

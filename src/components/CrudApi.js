@@ -77,7 +77,7 @@ const CrudApi = () => {
 
   const deleteData = (id) => {
     let isDelete = window.confirm(
-      `Tem certeza que quer apagar o registro com id '${id}'?`
+      `Tem certeza que deseja apagar o registro com o id '${id}'?`
     );
 
     if (isDelete) {

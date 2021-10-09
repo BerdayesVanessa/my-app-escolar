@@ -17,7 +17,6 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
                 <th>CPF</th>
                 <th>Data de nascimento</th>
                 <th>País</th>
-                <th>Gênero</th>
                 <th>Email</th>
                 <th>Telefone</th>
                 <th>Localidade</th>
@@ -36,12 +35,12 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="3">Sin datos</td>
+                  <td colSpan="3">Sem dados</td>
                 </tr>
               )}
             </tbody>
           </table>
-          <Link to="/cadastrar"  class="btn btn-primary"role="button">Voltar para o Cadastro</Link>{""} {""}
+          <Link to="/cadastrar"  class="btn btn-primary"role="button">Voltar ao Cadastro</Link>{""} {""}
           <Link to="/" class="btn btn-secondary"role="button">Página Inicial</Link>
         </div>
       </div>

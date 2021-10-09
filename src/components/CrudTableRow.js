@@ -9,7 +9,6 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
     cpf,
     nascimento,
     pais,
-    genero,
     email,
     telefone,
     localidade,
@@ -30,7 +29,6 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
       <td>{cpf}</td>
       <td>{nascimento}</td>
       <td>{pais}</td>
-      <td>{genero}</td>
       <td>{email}</td>
       <td>{telefone}</td>
       <td>{localidade}</td>

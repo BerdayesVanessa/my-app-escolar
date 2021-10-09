@@ -47,7 +47,7 @@ const CrudApp = () => {
 
   const deleteData = (id) => {
     let isDelete = window.confirm(
-      `¿Estás seguro de eliminar el registro con el id '${id}'?`
+      `Tem certeza que deseja apagar o registro com o id '${id}'?`
     );
 
     if (isDelete) {

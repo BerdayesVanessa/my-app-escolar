@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { HashRouter, NavLink, Route, Switch, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const initailForm = {
@@ -155,11 +156,11 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                       type="radio"
                       name="genero"
                       id="feminino"
-                      value="femenino"
+                      value="feminino"
                       // checked
                     ></input>
                     <label class="form-check-label" for="feminino">
-                      Femenino
+                      Feminino
                     </label>
                   </div>
                   <div class="form-check">
@@ -309,6 +310,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
             </div>
           </div>
         </form>
+        <Link to="/" class="btn btn-secondary botao "role="button">Página Inicial</Link>
       </div>
     </div>
   );
