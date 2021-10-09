@@ -7,6 +7,7 @@ import Loader from "./Loader";
 import Message from "./Message";
 import Header from "./Header";
 import Home from "./Home";
+import Footer from "./Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const CrudApi = () => {
@@ -76,7 +77,7 @@ const CrudApi = () => {
 
   const deleteData = (id) => {
     let isDelete = window.confirm(
-      `¿Estás seguro de eliminar el registro con el id '${id}'?`
+      `Tem certeza que quer apagar o registro com id '${id}'?`
     );
 
     if (isDelete) {
@@ -100,27 +101,10 @@ const CrudApi = () => {
   };
 
   return (
-    <div>
+    <div className="container-fluid">
       <HashRouter basename="VGKA">
         <header>
           <Header />
-          {/* <Home /> */}
-          {/* <nav class="navbar navbar-dark bg-dark">
-          <nav class="nav nav-pills flex-column flex-sm-row justify-content-end">
-            <NavLink to="/" activeClassName="active">
-              {" "}
-              Página Inicial{" "}
-            </NavLink>
-            <NavLink to="/cadastrar" activeClassName="active">
-              {" "}
-              Cadastrar Aluno{" "}
-            </NavLink>
-            <NavLink to="/dados" activeClassName="active">
-              {" "}
-              Dados dos Alunos{" "}
-            </NavLink>
-            </nav>
-          </nav> */}
         </header>
         <Switch>
           <Route exact path="/">
@@ -151,7 +135,7 @@ const CrudApi = () => {
             />
           </Route>
           <Route exact path="/editar/:id">
-            <h2> Editar Alunos </h2>
+            <br />
             <CrudForm
               createData={createData}
               updateData={updateData}
@@ -160,6 +144,9 @@ const CrudApi = () => {
             />
           </Route>
         </Switch>
+          <div>
+          <Footer />
+          </div>
       </HashRouter>
     </div>
   );

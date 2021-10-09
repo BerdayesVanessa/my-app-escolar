@@ -1,17 +1,19 @@
 import React from "react";
 import CrudTableRow from "./CrudTableRow";
+import { HashRouter, NavLink, Route, Switch, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const CrudTable = ({ data, setDataToEdit, deleteData }) => {
+  
   return (
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <h3 class="">Dados do Aluno</h3>
+          <br />
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>Nome</th>
+                <th>Nome completo</th>
                 <th>CPF</th>
                 <th>Data de nascimento</th>
                 <th>País</th>
@@ -39,6 +41,8 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
               )}
             </tbody>
           </table>
+          <Link to="/cadastrar"  class="btn btn-primary"role="button">Voltar para o Cadastro</Link>{""} {""}
+          <Link to="/" class="btn btn-secondary"role="button">Página Inicial</Link>
         </div>
       </div>
     </div>

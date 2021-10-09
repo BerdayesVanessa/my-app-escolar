@@ -51,7 +51,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
       !form.escolaridade ||
       !form.uf
     ) {
-      alert("Datos incompletos");
+      alert("Dados incompletos");
       return;
     }
 
@@ -72,7 +72,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
   return (
     <div class="container-fluid">
-      <legend>Dados pessoais</legend>
+      <br />
       <div class="container-fluid">
         <h3>{dataToEdit ? "Editar" : ""}</h3>
         <form onSubmit={handleSubmit}>
@@ -302,7 +302,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                 <input
                   class="btn btn-secondary"
                   type="reset"
-                  value="Limpiar"
+                  value="Limpar"
                   onClick={handleReset}
                 />
               </div>

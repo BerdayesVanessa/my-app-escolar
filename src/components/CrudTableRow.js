@@ -24,6 +24,7 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
   };
 
   return (
+
     <tr>
      <td>{name}</td>
       <td>{cpf}</td>
@@ -34,7 +35,7 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
       <td>{telefone}</td>
       <td>{localidade}</td>
       <td>{escolaridade}</td>
-
+ 
       <td>
         <button class="btn btn-success" onClick={handleEdit}>
           Editar
@@ -46,6 +47,7 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
         </button>
       </td>
     </tr>
+  
   );
 };
 

@@ -8,7 +8,7 @@ import Katherine from "../assets/img/Katherine.jpg";
 
 export default function Home(){
     return(
-        <div>
+        <div className="container-fluid">
             <div class="container sobre">
                 <div class="row">
                 <div class="col-sm-3">
@@ -129,14 +129,7 @@ export default function Home(){
             </div>
             </div>
         </div>
-    </div>
-
-    <footer class="container-fluid footer"> </footer>
-
-    <div class="container-fluid copyright">
-        <h6>© 2021 Copyright:  VKGA Todos os direitos reservados </h6>
-    </div>
-      
+    </div> 
     </div>
     )
 };

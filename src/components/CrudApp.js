@@ -59,7 +59,7 @@ const CrudApp = () => {
   };
 
   return (
-    <div>
+    <div className="container-fluid">
       <h2>Dados </h2>
       <article className="grid-1-2">
         <CrudForm
