@@ -31,7 +31,7 @@
       "cpf": "x",
       "nascimento": "2021-10-06",
       "pais": "venezuela",
-      "genero": "option2",
+      "genero": "masculino",
       "email": "x",
       "telefone": "x",
       "localidade": "x",
@@ -44,13 +44,52 @@
       "cpf": "f",
       "nascimento": "2021-10-11",
       "pais": "d",
-      "genero": "d",
+      "genero": "não informar",
       "email": "berdayesvane@hotmail.com",
       "telefone": "77ahora1",
       "localidade": "2",
       "escolaridade": "x",
       "uf": "d",
       "id": 1633470105953
+    },
+    {
+      "name": "prueba",
+      "cpf": "dwd",
+      "nascimento": "2021-10-07",
+      "pais": "dwd",
+      "genero": "não informar",
+      "email": "daw",
+      "telefone": "ad",
+      "localidade": "aDw",
+      "escolaridade": "da",
+      "uf": "adw",
+      "id": 1633563499951
+    },
+    {
+      "name": "genero",
+      "cpf": "D",
+      "nascimento": "2021-10-13",
+      "pais": "d",
+      "genero": "masculino",
+      "email": "D",
+      "telefone": "D",
+      "localidade": "D",
+      "escolaridade": "D",
+      "uf": "D",
+      "id": 1633564235051
+    },
+    {
+      "name": "salome",
+      "cpf": "D",
+      "nascimento": "2021-10-06",
+      "pais": "dwd",
+      "genero": "masculino",
+      "email": "salomeberdayes@gmail.com",
+      "telefone": "19999249994",
+      "localidade": "campinas",
+      "escolaridade": "D",
+      "uf": "D",
+      "id": 1633564672122
     }
   ]
 }

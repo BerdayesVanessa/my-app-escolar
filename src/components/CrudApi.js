@@ -5,6 +5,8 @@ import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
 import Loader from "./Loader";
 import Message from "./Message";
+import Header from "./Header";
+import Home from "./Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const CrudApi = () => {
@@ -99,8 +101,9 @@ const CrudApi = () => {
 
   return (
     <div>
-      <HashRouter basename="lista">
+      <HashRouter basename="VGKA">
         <header>
+          <Home />
           <nav class="navbar navbar-dark bg-dark">
           <nav class="nav nav-pills flex-column flex-sm-row justify-content-end">
             <NavLink to="/" activeClassName="active">

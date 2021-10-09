@@ -156,7 +156,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                       name="genero"
                       id="feminino"
                       value="femenino"
-                      checked
+                      // checked
                     ></input>
                     <label class="form-check-label" for="feminino">
                       Femenino
@@ -169,7 +169,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                       type="radio"
                       name="genero"
                       id="masculino"
-                      value="option2"
+                      value="masculino"
                     ></input>
                     <label className="form-check-label" htmlFor="masculino">
                       Masculino
@@ -182,7 +182,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                       type="radio"
                       name="genero"
                       id="informar"
-                      value="informar"
+                      value="não informar"
                     ></input>
                     <label class="form-check-label" for="informar">
                       Desejo não informar
@@ -190,21 +190,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                   </div>
                 </div>
               </div>
-            {/* <div class="col-3">
-              <div class="form-group">
-                <label for="name">
-                  Gênero
-                  <input
-                    type="text"
-                    name="genero"
-                    placeholder="Digete seu gênero"
-                    class="form-control"
-                    onChange={handleChange}
-                    value={form.genero}
-                  />
-                </label>
-              </div>
-            </div> */}
+              
 
             <div class="col-3">
               <div class="form-group">
