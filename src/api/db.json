@@ -77,19 +77,6 @@
       "escolaridade": "D",
       "uf": "D",
       "id": 1633564235051
-    },
-    {
-      "name": "salome",
-      "cpf": "D",
-      "nascimento": "2021-10-06",
-      "pais": "dwd",
-      "genero": "masculino",
-      "email": "salomeberdayes@gmail.com",
-      "telefone": "19999249994",
-      "localidade": "campinas",
-      "escolaridade": "D",
-      "uf": "D",
-      "id": 1633564672122
     }
   ]
 }
