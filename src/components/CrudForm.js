@@ -67,7 +67,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   const handleReset = (e) => {
     setForm(initailForm);
     setDataToEdit(null);
-    history.push("/");
+    history.push("/dados");
   };
 
   return (

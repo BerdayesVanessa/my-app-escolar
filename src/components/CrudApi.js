@@ -103,22 +103,30 @@ const CrudApi = () => {
     <div>
       <HashRouter basename="VGKA">
         <header>
-          <Home />
-          <nav class="navbar navbar-dark bg-dark">
+          <Header />
+          {/* <Home /> */}
+          {/* <nav class="navbar navbar-dark bg-dark">
           <nav class="nav nav-pills flex-column flex-sm-row justify-content-end">
             <NavLink to="/" activeClassName="active">
               {" "}
-              Lista{" "}
+              Página Inicial{" "}
             </NavLink>
-            <NavLink to="/agregar" activeClassName="active">
+            <NavLink to="/cadastrar" activeClassName="active">
               {" "}
-              Agregar{" "}
+              Cadastrar Aluno{" "}
+            </NavLink>
+            <NavLink to="/dados" activeClassName="active">
+              {" "}
+              Dados dos Alunos{" "}
             </NavLink>
             </nav>
-          </nav>
+          </nav> */}
         </header>
         <Switch>
           <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/dados">
             {loading && <Loader />}
             {error && (
               <Message
@@ -134,7 +142,7 @@ const CrudApi = () => {
               />
             )}
           </Route>
-          <Route exact path="/agregar">
+          <Route exact path="/cadastrar">
             <CrudForm
               createData={createData}
               updateData={updateData}

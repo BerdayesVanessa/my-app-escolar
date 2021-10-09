@@ -9,26 +9,6 @@ import Katherine from "../assets/img/Katherine.jpg";
 export default function Home(){
     return(
         <div>
-            <div class="container-fluid">
-                <header className="container-fluid header"></header>
-                <div class="container-fluid nav">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Sobre Nós</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre o Projeto</a>
-                        </li>
-                        <li class="nav-item">
-                            <Link to="/agregar" class="nav-link" href="#">Cadastrar Aluno</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link to="/"  class="nav-link" href="#">Editar Aluno</Link>
-                        </li>
-                    </ul>
-                </div>
-        </div>
-
             <div class="container sobre">
                 <div class="row">
                 <div class="col-sm-3">
@@ -114,7 +94,7 @@ export default function Home(){
                 <img src="https://i0.wp.com/bane-tech.com/wp-content/uploads/2015/10/C.png?ssl=1" class="card-img-top" alt="..."></img>
                 <h5 class="card-title">Create (criar) </h5>
                 <p class="card-text"> Criar um novo registro de aluno.</p>
-                <Link to="/agregar" class="btn btn-outline-success"> Criar </Link>
+                <Link to="/cadastrar" class="btn btn-outline-success"> Criar </Link>
             </div>
             </div>
         </div>
@@ -124,7 +104,7 @@ export default function Home(){
                 <img src="https://th.bing.com/th/id/R.e1182ad1f0d2bc2bd97a956955e6539a?rik=lIL9UjIFAxC%2bCQ&riu=http%3a%2f%2fwww.bane-tech.com%2fwp-content%2fuploads%2f2015%2f10%2fR.png&ehk=TnA7hqpVNkW5lNWDfQwTwqKOc1Cmbw4tJ7Vcb5%2bjiSk%3d&risl=&pid=ImgRaw&r=0" class="card-img-top" alt="..."></img>
                 <h5 class="card-title">Read (ler)</h5>
                 <p class="card-text"> Exibir as informações do aluno.</p>
-                <Link to="/" class="btn btn-outline-secondary">Exibir</Link>
+                <Link to="/dados" class="btn btn-outline-secondary">Exibir</Link>
             </div>
             </div>
         </div>
@@ -134,7 +114,7 @@ export default function Home(){
                 <img src="https://i2.wp.com/bane-tech.com/wp-content/uploads/2015/10/U.png?ssl=1" class="card-img-top" alt="..."></img>
                 <h5 class="card-title">Update (atualizar)</h5>
                 <p class="card-text"> Atualizar os dados do aluno.</p>
-                <Link to="/" class="btn btn-outline-info">Atualizar</Link>
+                <Link to="/dados" class="btn btn-outline-info">Atualizar</Link>
                 </div>
             </div>
             </div>
@@ -144,7 +124,7 @@ export default function Home(){
                 <img src="https://www.logolynx.com/images/logolynx/37/37afdc45d00a2c88d42d9a9f2238ffc0.png" class="card-img-top" alt="..."></img>
                 <h5 class="card-title">Delete (apagar)</h5>
                 <p class="card-text"> Apagar registro do aluno.</p>
-                <Link to="/" class="btn btn-outline-danger">Apagar</Link>
+                <Link to="/dados" class="btn btn-outline-danger">Apagar</Link>
                 </div>
             </div>
             </div>
