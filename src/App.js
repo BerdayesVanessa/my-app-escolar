@@ -4,7 +4,7 @@ import CrudApi from "./components/CrudApi";
 
 function App() {
   return (
-    <div class="container-fluid">
+    <div className="container-fluid">
       <CrudApi />
     </div>
   );

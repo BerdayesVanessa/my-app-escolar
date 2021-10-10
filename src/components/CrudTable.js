@@ -6,11 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const CrudTable = ({ data, setDataToEdit, deleteData }) => {
   
   return (
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col">
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col">
           <br />
-          <table class="table table-hover">
+          <table className="table table-hover">
             <thead>
               <tr>
                 <th>Nome completo</th>
@@ -40,8 +40,8 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
               )}
             </tbody>
           </table>
-          <Link to="/cadastrar"  class="btn btn-primary"role="button">Voltar ao Cadastro</Link>{""} {""}
-          <Link to="/" class="btn btn-secondary"role="button">Página Inicial</Link>
+          <Link to="/cadastrar"  className="btn btn-primary"role="button">Voltar ao Cadastro</Link>{""} {""}
+          <Link to="/" className="btn btn-secondary"role="button">Página Inicial</Link>
         </div>
       </div>
     </div>

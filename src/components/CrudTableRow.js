@@ -35,12 +35,12 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
       <td>{escolaridade}</td>
  
       <td>
-        <button class="btn btn-success" onClick={handleEdit}>
+        <button className="btn btn-success" onClick={handleEdit}>
           Editar
         </button>
       </td>
       <td>
-        <button class="btn btn-danger" onClick={() => deleteData(id)}>
+        <button className="btn btn-danger" onClick={() => deleteData(id)}>
           Apagar
         </button>
       </td>

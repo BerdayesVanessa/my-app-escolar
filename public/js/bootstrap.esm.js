@@ -41,7 +41,7 @@ const getSelector = element => {
   let selector = element.getAttribute('data-bs-target');
 
   if (!selector || selector === '#') {
-    let hrefAttr = element.getAttribute('href'); // The only valid content that could double as a selector are IDs or classes,
+    let hrefAttr = element.getAttribute('href'); // The only valid content that could double as a selector are IDs or classNamees,
     // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
     // `document.querySelector` will rightfully complain it is invalid.
     // See https://github.com/twbs/bootstrap/issues/32273
@@ -153,7 +153,7 @@ const isDisabled = element => {
     return true;
   }
 
-  if (element.classList.contains('disabled')) {
+  if (element.classNameList.contains('disabled')) {
     return true;
   }
 
@@ -672,7 +672,7 @@ var Data = {
 
 const VERSION = '5.1.1';
 
-class BaseComponent {
+className BaseComponent {
   constructor(element) {
     element = getElement(element);
 
@@ -767,15 +767,15 @@ const DATA_KEY$c = 'bs.alert';
 const EVENT_KEY$c = `.${DATA_KEY$c}`;
 const EVENT_CLOSE = `close${EVENT_KEY$c}`;
 const EVENT_CLOSED = `closed${EVENT_KEY$c}`;
-const CLASS_NAME_FADE$5 = 'fade';
-const CLASS_NAME_SHOW$8 = 'show';
+const className_NAME_FADE$5 = 'fade';
+const className_NAME_SHOW$8 = 'show';
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Alert extends BaseComponent {
+className Alert extends BaseComponent {
   // Getters
   static get NAME() {
     return NAME$d;
@@ -789,9 +789,9 @@ class Alert extends BaseComponent {
       return;
     }
 
-    this._element.classList.remove(CLASS_NAME_SHOW$8);
+    this._element.classNameList.remove(className_NAME_SHOW$8);
 
-    const isAnimated = this._element.classList.contains(CLASS_NAME_FADE$5);
+    const isAnimated = this._element.classNameList.contains(className_NAME_FADE$5);
 
     this._queueCallback(() => this._destroyElement(), this._element, isAnimated);
   } // Private
@@ -855,16 +855,16 @@ const NAME$c = 'button';
 const DATA_KEY$b = 'bs.button';
 const EVENT_KEY$b = `.${DATA_KEY$b}`;
 const DATA_API_KEY$7 = '.data-api';
-const CLASS_NAME_ACTIVE$3 = 'active';
+const className_NAME_ACTIVE$3 = 'active';
 const SELECTOR_DATA_TOGGLE$5 = '[data-bs-toggle="button"]';
 const EVENT_CLICK_DATA_API$6 = `click${EVENT_KEY$b}${DATA_API_KEY$7}`;
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Button extends BaseComponent {
+className Button extends BaseComponent {
   // Getters
   static get NAME() {
     return NAME$c;
@@ -872,8 +872,8 @@ class Button extends BaseComponent {
 
 
   toggle() {
-    // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
-    this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE$3));
+    // Toggle className and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
+    this._element.setAttribute('aria-pressed', this._element.classNameList.toggle(className_NAME_ACTIVE$3));
   } // Static
 
 
@@ -1112,14 +1112,14 @@ const EVENT_POINTERUP = `pointerup${EVENT_KEY$a}`;
 const EVENT_DRAG_START = `dragstart${EVENT_KEY$a}`;
 const EVENT_LOAD_DATA_API$2 = `load${EVENT_KEY$a}${DATA_API_KEY$6}`;
 const EVENT_CLICK_DATA_API$5 = `click${EVENT_KEY$a}${DATA_API_KEY$6}`;
-const CLASS_NAME_CAROUSEL = 'carousel';
-const CLASS_NAME_ACTIVE$2 = 'active';
-const CLASS_NAME_SLIDE = 'slide';
-const CLASS_NAME_END = 'carousel-item-end';
-const CLASS_NAME_START = 'carousel-item-start';
-const CLASS_NAME_NEXT = 'carousel-item-next';
-const CLASS_NAME_PREV = 'carousel-item-prev';
-const CLASS_NAME_POINTER_EVENT = 'pointer-event';
+const className_NAME_CAROUSEL = 'carousel';
+const className_NAME_ACTIVE$2 = 'active';
+const className_NAME_SLIDE = 'slide';
+const className_NAME_END = 'carousel-item-end';
+const className_NAME_START = 'carousel-item-start';
+const className_NAME_NEXT = 'carousel-item-next';
+const className_NAME_PREV = 'carousel-item-prev';
+const className_NAME_POINTER_EVENT = 'pointer-event';
 const SELECTOR_ACTIVE$1 = '.active';
 const SELECTOR_ACTIVE_ITEM = '.active.carousel-item';
 const SELECTOR_ITEM = '.carousel-item';
@@ -1133,11 +1133,11 @@ const POINTER_TYPE_TOUCH = 'touch';
 const POINTER_TYPE_PEN = 'pen';
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Carousel extends BaseComponent {
+className Carousel extends BaseComponent {
   constructor(element, config) {
     super(element);
     this._items = null;
@@ -1331,7 +1331,7 @@ class Carousel extends BaseComponent {
       EventHandler.on(this._element, EVENT_POINTERDOWN, event => start(event));
       EventHandler.on(this._element, EVENT_POINTERUP, event => end(event));
 
-      this._element.classList.add(CLASS_NAME_POINTER_EVENT);
+      this._element.classNameList.add(className_NAME_POINTER_EVENT);
     } else {
       EventHandler.on(this._element, EVENT_TOUCHSTART, event => start(event));
       EventHandler.on(this._element, EVENT_TOUCHMOVE, event => move(event));
@@ -1379,13 +1379,13 @@ class Carousel extends BaseComponent {
   _setActiveIndicatorElement(element) {
     if (this._indicatorsElement) {
       const activeIndicator = SelectorEngine.findOne(SELECTOR_ACTIVE$1, this._indicatorsElement);
-      activeIndicator.classList.remove(CLASS_NAME_ACTIVE$2);
+      activeIndicator.classNameList.remove(className_NAME_ACTIVE$2);
       activeIndicator.removeAttribute('aria-current');
       const indicators = SelectorEngine.find(SELECTOR_INDICATOR, this._indicatorsElement);
 
       for (let i = 0; i < indicators.length; i++) {
         if (Number.parseInt(indicators[i].getAttribute('data-bs-slide-to'), 10) === this._getItemIndex(element)) {
-          indicators[i].classList.add(CLASS_NAME_ACTIVE$2);
+          indicators[i].classNameList.add(className_NAME_ACTIVE$2);
           indicators[i].setAttribute('aria-current', 'true');
           break;
         }
@@ -1423,12 +1423,12 @@ class Carousel extends BaseComponent {
 
     const isCycling = Boolean(this._interval);
     const isNext = order === ORDER_NEXT;
-    const directionalClassName = isNext ? CLASS_NAME_START : CLASS_NAME_END;
-    const orderClassName = isNext ? CLASS_NAME_NEXT : CLASS_NAME_PREV;
+    const directionalclassName = isNext ? className_NAME_START : className_NAME_END;
+    const orderclassName = isNext ? className_NAME_NEXT : className_NAME_PREV;
 
     const eventDirectionName = this._orderToDirection(order);
 
-    if (nextElement && nextElement.classList.contains(CLASS_NAME_ACTIVE$2)) {
+    if (nextElement && nextElement.classNameList.contains(className_NAME_ACTIVE$2)) {
       this._isSliding = false;
       return;
     }
@@ -1467,24 +1467,24 @@ class Carousel extends BaseComponent {
       });
     };
 
-    if (this._element.classList.contains(CLASS_NAME_SLIDE)) {
-      nextElement.classList.add(orderClassName);
+    if (this._element.classNameList.contains(className_NAME_SLIDE)) {
+      nextElement.classNameList.add(orderclassName);
       reflow(nextElement);
-      activeElement.classList.add(directionalClassName);
-      nextElement.classList.add(directionalClassName);
+      activeElement.classNameList.add(directionalclassName);
+      nextElement.classNameList.add(directionalclassName);
 
       const completeCallBack = () => {
-        nextElement.classList.remove(directionalClassName, orderClassName);
-        nextElement.classList.add(CLASS_NAME_ACTIVE$2);
-        activeElement.classList.remove(CLASS_NAME_ACTIVE$2, orderClassName, directionalClassName);
+        nextElement.classNameList.remove(directionalclassName, orderclassName);
+        nextElement.classNameList.add(className_NAME_ACTIVE$2);
+        activeElement.classNameList.remove(className_NAME_ACTIVE$2, orderclassName, directionalclassName);
         this._isSliding = false;
         setTimeout(triggerSlidEvent, 0);
       };
 
       this._queueCallback(completeCallBack, activeElement, true);
     } else {
-      activeElement.classList.remove(CLASS_NAME_ACTIVE$2);
-      nextElement.classList.add(CLASS_NAME_ACTIVE$2);
+      activeElement.classNameList.remove(className_NAME_ACTIVE$2);
+      nextElement.classNameList.add(className_NAME_ACTIVE$2);
       this._isSliding = false;
       triggerSlidEvent();
     }
@@ -1556,7 +1556,7 @@ class Carousel extends BaseComponent {
   static dataApiClickHandler(event) {
     const target = getElementFromSelector(this);
 
-    if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) {
+    if (!target || !target.classNameList.contains(className_NAME_CAROUSEL)) {
       return;
     }
 
@@ -1632,22 +1632,22 @@ const EVENT_SHOWN$5 = `shown${EVENT_KEY$9}`;
 const EVENT_HIDE$5 = `hide${EVENT_KEY$9}`;
 const EVENT_HIDDEN$5 = `hidden${EVENT_KEY$9}`;
 const EVENT_CLICK_DATA_API$4 = `click${EVENT_KEY$9}${DATA_API_KEY$5}`;
-const CLASS_NAME_SHOW$7 = 'show';
-const CLASS_NAME_COLLAPSE = 'collapse';
-const CLASS_NAME_COLLAPSING = 'collapsing';
-const CLASS_NAME_COLLAPSED = 'collapsed';
-const CLASS_NAME_HORIZONTAL = 'collapse-horizontal';
+const className_NAME_SHOW$7 = 'show';
+const className_NAME_COLLAPSE = 'collapse';
+const className_NAME_COLLAPSING = 'collapsing';
+const className_NAME_COLLAPSED = 'collapsed';
+const className_NAME_HORIZONTAL = 'collapse-horizontal';
 const WIDTH = 'width';
 const HEIGHT = 'height';
 const SELECTOR_ACTIVES = '.collapse.show, .collapse.collapsing';
 const SELECTOR_DATA_TOGGLE$4 = '[data-bs-toggle="collapse"]';
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Collapse extends BaseComponent {
+className Collapse extends BaseComponent {
   constructor(element, config) {
     super(element);
     this._isTransitioning = false;
@@ -1670,7 +1670,7 @@ class Collapse extends BaseComponent {
     this._initializeChildren();
 
     if (!this._config.parent) {
-      this._addAriaAndCollapsedClass(this._triggerArray, this._isShown());
+      this._addAriaAndCollapsedclassName(this._triggerArray, this._isShown());
     }
 
     if (this._config.toggle) {
@@ -1705,7 +1705,7 @@ class Collapse extends BaseComponent {
     let activesData;
 
     if (this._config.parent) {
-      const children = SelectorEngine.find(`.${CLASS_NAME_COLLAPSE} .${CLASS_NAME_COLLAPSE}`, this._config.parent);
+      const children = SelectorEngine.find(`.${className_NAME_COLLAPSE} .${className_NAME_COLLAPSE}`, this._config.parent);
       actives = SelectorEngine.find(SELECTOR_ACTIVES, this._config.parent).filter(elem => !children.includes(elem)); // remove children if greater depth
     }
 
@@ -1740,22 +1740,22 @@ class Collapse extends BaseComponent {
 
     const dimension = this._getDimension();
 
-    this._element.classList.remove(CLASS_NAME_COLLAPSE);
+    this._element.classNameList.remove(className_NAME_COLLAPSE);
 
-    this._element.classList.add(CLASS_NAME_COLLAPSING);
+    this._element.classNameList.add(className_NAME_COLLAPSING);
 
     this._element.style[dimension] = 0;
 
-    this._addAriaAndCollapsedClass(this._triggerArray, true);
+    this._addAriaAndCollapsedclassName(this._triggerArray, true);
 
     this._isTransitioning = true;
 
     const complete = () => {
       this._isTransitioning = false;
 
-      this._element.classList.remove(CLASS_NAME_COLLAPSING);
+      this._element.classNameList.remove(className_NAME_COLLAPSING);
 
-      this._element.classList.add(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW$7);
+      this._element.classNameList.add(className_NAME_COLLAPSE, className_NAME_SHOW$7);
 
       this._element.style[dimension] = '';
       EventHandler.trigger(this._element, EVENT_SHOWN$5);
@@ -1785,9 +1785,9 @@ class Collapse extends BaseComponent {
     this._element.style[dimension] = `${this._element.getBoundingClientRect()[dimension]}px`;
     reflow(this._element);
 
-    this._element.classList.add(CLASS_NAME_COLLAPSING);
+    this._element.classNameList.add(className_NAME_COLLAPSING);
 
-    this._element.classList.remove(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW$7);
+    this._element.classNameList.remove(className_NAME_COLLAPSE, className_NAME_SHOW$7);
 
     const triggerArrayLength = this._triggerArray.length;
 
@@ -1796,7 +1796,7 @@ class Collapse extends BaseComponent {
       const elem = getElementFromSelector(trigger);
 
       if (elem && !this._isShown(elem)) {
-        this._addAriaAndCollapsedClass([trigger], false);
+        this._addAriaAndCollapsedclassName([trigger], false);
       }
     }
 
@@ -1805,9 +1805,9 @@ class Collapse extends BaseComponent {
     const complete = () => {
       this._isTransitioning = false;
 
-      this._element.classList.remove(CLASS_NAME_COLLAPSING);
+      this._element.classNameList.remove(className_NAME_COLLAPSING);
 
-      this._element.classList.add(CLASS_NAME_COLLAPSE);
+      this._element.classNameList.add(className_NAME_COLLAPSE);
 
       EventHandler.trigger(this._element, EVENT_HIDDEN$5);
     };
@@ -1818,7 +1818,7 @@ class Collapse extends BaseComponent {
   }
 
   _isShown(element = this._element) {
-    return element.classList.contains(CLASS_NAME_SHOW$7);
+    return element.classNameList.contains(className_NAME_SHOW$7);
   } // Private
 
 
@@ -1835,7 +1835,7 @@ class Collapse extends BaseComponent {
   }
 
   _getDimension() {
-    return this._element.classList.contains(CLASS_NAME_HORIZONTAL) ? WIDTH : HEIGHT;
+    return this._element.classNameList.contains(className_NAME_HORIZONTAL) ? WIDTH : HEIGHT;
   }
 
   _initializeChildren() {
@@ -1843,26 +1843,26 @@ class Collapse extends BaseComponent {
       return;
     }
 
-    const children = SelectorEngine.find(`.${CLASS_NAME_COLLAPSE} .${CLASS_NAME_COLLAPSE}`, this._config.parent);
+    const children = SelectorEngine.find(`.${className_NAME_COLLAPSE} .${className_NAME_COLLAPSE}`, this._config.parent);
     SelectorEngine.find(SELECTOR_DATA_TOGGLE$4, this._config.parent).filter(elem => !children.includes(elem)).forEach(element => {
       const selected = getElementFromSelector(element);
 
       if (selected) {
-        this._addAriaAndCollapsedClass([element], this._isShown(selected));
+        this._addAriaAndCollapsedclassName([element], this._isShown(selected));
       }
     });
   }
 
-  _addAriaAndCollapsedClass(triggerArray, isOpen) {
+  _addAriaAndCollapsedclassName(triggerArray, isOpen) {
     if (!triggerArray.length) {
       return;
     }
 
     triggerArray.forEach(elem => {
       if (isOpen) {
-        elem.classList.remove(CLASS_NAME_COLLAPSED);
+        elem.classNameList.remove(className_NAME_COLLAPSED);
       } else {
-        elem.classList.add(CLASS_NAME_COLLAPSED);
+        elem.classNameList.add(className_NAME_COLLAPSED);
       }
 
       elem.setAttribute('aria-expanded', isOpen);
@@ -1952,11 +1952,11 @@ const EVENT_SHOWN$4 = `shown${EVENT_KEY$8}`;
 const EVENT_CLICK_DATA_API$3 = `click${EVENT_KEY$8}${DATA_API_KEY$4}`;
 const EVENT_KEYDOWN_DATA_API = `keydown${EVENT_KEY$8}${DATA_API_KEY$4}`;
 const EVENT_KEYUP_DATA_API = `keyup${EVENT_KEY$8}${DATA_API_KEY$4}`;
-const CLASS_NAME_SHOW$6 = 'show';
-const CLASS_NAME_DROPUP = 'dropup';
-const CLASS_NAME_DROPEND = 'dropend';
-const CLASS_NAME_DROPSTART = 'dropstart';
-const CLASS_NAME_NAVBAR = 'navbar';
+const className_NAME_SHOW$6 = 'show';
+const className_NAME_DROPUP = 'dropup';
+const className_NAME_DROPEND = 'dropend';
+const className_NAME_DROPSTART = 'dropstart';
+const className_NAME_NAVBAR = 'navbar';
 const SELECTOR_DATA_TOGGLE$3 = '[data-bs-toggle="dropdown"]';
 const SELECTOR_MENU = '.dropdown-menu';
 const SELECTOR_NAVBAR_NAV = '.navbar-nav';
@@ -1985,11 +1985,11 @@ const DefaultType$8 = {
 };
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Dropdown extends BaseComponent {
+className Dropdown extends BaseComponent {
   constructor(element, config) {
     super(element);
     this._popper = null;
@@ -2050,9 +2050,9 @@ class Dropdown extends BaseComponent {
 
     this._element.setAttribute('aria-expanded', true);
 
-    this._menu.classList.add(CLASS_NAME_SHOW$6);
+    this._menu.classNameList.add(className_NAME_SHOW$6);
 
-    this._element.classList.add(CLASS_NAME_SHOW$6);
+    this._element.classNameList.add(className_NAME_SHOW$6);
 
     EventHandler.trigger(this._element, EVENT_SHOWN$4, relatedTarget);
   }
@@ -2103,9 +2103,9 @@ class Dropdown extends BaseComponent {
       this._popper.destroy();
     }
 
-    this._menu.classList.remove(CLASS_NAME_SHOW$6);
+    this._menu.classNameList.remove(className_NAME_SHOW$6);
 
-    this._element.classList.remove(CLASS_NAME_SHOW$6);
+    this._element.classNameList.remove(className_NAME_SHOW$6);
 
     this._element.setAttribute('aria-expanded', 'false');
 
@@ -2154,7 +2154,7 @@ class Dropdown extends BaseComponent {
   }
 
   _isShown(element = this._element) {
-    return element.classList.contains(CLASS_NAME_SHOW$6);
+    return element.classNameList.contains(className_NAME_SHOW$6);
   }
 
   _getMenuElement() {
@@ -2164,18 +2164,18 @@ class Dropdown extends BaseComponent {
   _getPlacement() {
     const parentDropdown = this._element.parentNode;
 
-    if (parentDropdown.classList.contains(CLASS_NAME_DROPEND)) {
+    if (parentDropdown.classNameList.contains(className_NAME_DROPEND)) {
       return PLACEMENT_RIGHT;
     }
 
-    if (parentDropdown.classList.contains(CLASS_NAME_DROPSTART)) {
+    if (parentDropdown.classNameList.contains(className_NAME_DROPSTART)) {
       return PLACEMENT_LEFT;
     } // We need to trim the value because custom properties can also include spaces
 
 
     const isEnd = getComputedStyle(this._menu).getPropertyValue('--bs-position').trim() === 'end';
 
-    if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
+    if (parentDropdown.classNameList.contains(className_NAME_DROPUP)) {
       return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP;
     }
 
@@ -2183,7 +2183,7 @@ class Dropdown extends BaseComponent {
   }
 
   _detectNavbar() {
-    return this._element.closest(`.${CLASS_NAME_NAVBAR}`) !== null;
+    return this._element.closest(`.${className_NAME_NAVBAR}`) !== null;
   }
 
   _getOffset() {
@@ -2322,7 +2322,7 @@ class Dropdown extends BaseComponent {
       return;
     }
 
-    const isActive = this.classList.contains(CLASS_NAME_SHOW$6);
+    const isActive = this.classNameList.contains(className_NAME_SHOW$6);
 
     if (!isActive && event.key === ESCAPE_KEY$2) {
       return;
@@ -2392,7 +2392,7 @@ defineJQueryPlugin(Dropdown);
 const SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
 const SELECTOR_STICKY_CONTENT = '.sticky-top';
 
-class ScrollBarHelper {
+className ScrollBarHelper {
   constructor() {
     this._element = document.body;
   }
@@ -2510,11 +2510,11 @@ const DefaultType$7 = {
   clickCallback: '(function|null)'
 };
 const NAME$8 = 'backdrop';
-const CLASS_NAME_FADE$4 = 'fade';
-const CLASS_NAME_SHOW$5 = 'show';
+const className_NAME_FADE$4 = 'fade';
+const className_NAME_SHOW$5 = 'show';
 const EVENT_MOUSEDOWN = `mousedown.bs.${NAME$8}`;
 
-class Backdrop {
+className Backdrop {
   constructor(config) {
     this._config = this._getConfig(config);
     this._isAppended = false;
@@ -2533,7 +2533,7 @@ class Backdrop {
       reflow(this._getElement());
     }
 
-    this._getElement().classList.add(CLASS_NAME_SHOW$5);
+    this._getElement().classNameList.add(className_NAME_SHOW$5);
 
     this._emulateAnimation(() => {
       execute(callback);
@@ -2546,7 +2546,7 @@ class Backdrop {
       return;
     }
 
-    this._getElement().classList.remove(CLASS_NAME_SHOW$5);
+    this._getElement().classNameList.remove(className_NAME_SHOW$5);
 
     this._emulateAnimation(() => {
       this.dispose();
@@ -2561,7 +2561,7 @@ class Backdrop {
       backdrop.className = this._config.className;
 
       if (this._config.isAnimated) {
-        backdrop.classList.add(CLASS_NAME_FADE$4);
+        backdrop.classNameList.add(className_NAME_FADE$4);
       }
 
       this._element = backdrop;
@@ -2635,7 +2635,7 @@ const TAB_KEY = 'Tab';
 const TAB_NAV_FORWARD = 'forward';
 const TAB_NAV_BACKWARD = 'backward';
 
-class FocusTrap {
+className FocusTrap {
   constructor(config) {
     this._config = this._getConfig(config);
     this._isActive = false;
@@ -2752,21 +2752,21 @@ const EVENT_KEYDOWN_DISMISS$1 = `keydown.dismiss${EVENT_KEY$6}`;
 const EVENT_MOUSEUP_DISMISS = `mouseup.dismiss${EVENT_KEY$6}`;
 const EVENT_MOUSEDOWN_DISMISS = `mousedown.dismiss${EVENT_KEY$6}`;
 const EVENT_CLICK_DATA_API$2 = `click${EVENT_KEY$6}${DATA_API_KEY$3}`;
-const CLASS_NAME_OPEN = 'modal-open';
-const CLASS_NAME_FADE$3 = 'fade';
-const CLASS_NAME_SHOW$4 = 'show';
-const CLASS_NAME_STATIC = 'modal-static';
+const className_NAME_OPEN = 'modal-open';
+const className_NAME_FADE$3 = 'fade';
+const className_NAME_SHOW$4 = 'show';
+const className_NAME_STATIC = 'modal-static';
 const OPEN_SELECTOR$1 = '.modal.show';
 const SELECTOR_DIALOG = '.modal-dialog';
 const SELECTOR_MODAL_BODY = '.modal-body';
 const SELECTOR_DATA_TOGGLE$2 = '[data-bs-toggle="modal"]';
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Modal extends BaseComponent {
+className Modal extends BaseComponent {
   constructor(element, config) {
     super(element);
     this._config = this._getConfig(config);
@@ -2814,7 +2814,7 @@ class Modal extends BaseComponent {
 
     this._scrollBar.hide();
 
-    document.body.classList.add(CLASS_NAME_OPEN);
+    document.body.classNameList.add(className_NAME_OPEN);
 
     this._adjustDialog();
 
@@ -2858,7 +2858,7 @@ class Modal extends BaseComponent {
 
     this._focustrap.deactivate();
 
-    this._element.classList.remove(CLASS_NAME_SHOW$4);
+    this._element.classNameList.remove(className_NAME_SHOW$4);
 
     EventHandler.off(this._element, EVENT_CLICK_DISMISS);
     EventHandler.off(this._dialog, EVENT_MOUSEDOWN_DISMISS);
@@ -2932,7 +2932,7 @@ class Modal extends BaseComponent {
       reflow(this._element);
     }
 
-    this._element.classList.add(CLASS_NAME_SHOW$4);
+    this._element.classNameList.add(className_NAME_SHOW$4);
 
     const transitionComplete = () => {
       if (this._config.focus) {
@@ -2983,7 +2983,7 @@ class Modal extends BaseComponent {
     this._isTransitioning = false;
 
     this._backdrop.hide(() => {
-      document.body.classList.remove(CLASS_NAME_OPEN);
+      document.body.classNameList.remove(className_NAME_OPEN);
 
       this._resetAdjustments();
 
@@ -3015,7 +3015,7 @@ class Modal extends BaseComponent {
   }
 
   _isAnimated() {
-    return this._element.classList.contains(CLASS_NAME_FADE$3);
+    return this._element.classNameList.contains(className_NAME_FADE$3);
   }
 
   _triggerBackdropTransition() {
@@ -3026,13 +3026,13 @@ class Modal extends BaseComponent {
     }
 
     const {
-      classList,
+      classNameList,
       scrollHeight,
       style
     } = this._element;
     const isModalOverflowing = scrollHeight > document.documentElement.clientHeight; // return if the following background transition hasn't yet completed
 
-    if (!isModalOverflowing && style.overflowY === 'hidden' || classList.contains(CLASS_NAME_STATIC)) {
+    if (!isModalOverflowing && style.overflowY === 'hidden' || classNameList.contains(className_NAME_STATIC)) {
       return;
     }
 
@@ -3040,10 +3040,10 @@ class Modal extends BaseComponent {
       style.overflowY = 'hidden';
     }
 
-    classList.add(CLASS_NAME_STATIC);
+    classNameList.add(className_NAME_STATIC);
 
     this._queueCallback(() => {
-      classList.remove(CLASS_NAME_STATIC);
+      classNameList.remove(className_NAME_STATIC);
 
       if (!isModalOverflowing) {
         this._queueCallback(() => {
@@ -3171,8 +3171,8 @@ const DefaultType$4 = {
   keyboard: 'boolean',
   scroll: 'boolean'
 };
-const CLASS_NAME_SHOW$3 = 'show';
-const CLASS_NAME_BACKDROP = 'offcanvas-backdrop';
+const className_NAME_SHOW$3 = 'show';
+const className_NAME_BACKDROP = 'offcanvas-backdrop';
 const OPEN_SELECTOR = '.offcanvas.show';
 const EVENT_SHOW$2 = `show${EVENT_KEY$5}`;
 const EVENT_SHOWN$2 = `shown${EVENT_KEY$5}`;
@@ -3183,11 +3183,11 @@ const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY$5}`;
 const SELECTOR_DATA_TOGGLE$1 = '[data-bs-toggle="offcanvas"]';
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Offcanvas extends BaseComponent {
+className Offcanvas extends BaseComponent {
   constructor(element, config) {
     super(element);
     this._config = this._getConfig(config);
@@ -3240,7 +3240,7 @@ class Offcanvas extends BaseComponent {
 
     this._element.setAttribute('role', 'dialog');
 
-    this._element.classList.add(CLASS_NAME_SHOW$3);
+    this._element.classNameList.add(className_NAME_SHOW$3);
 
     const completeCallBack = () => {
       if (!this._config.scroll) {
@@ -3272,7 +3272,7 @@ class Offcanvas extends BaseComponent {
 
     this._isShown = false;
 
-    this._element.classList.remove(CLASS_NAME_SHOW$3);
+    this._element.classNameList.remove(className_NAME_SHOW$3);
 
     this._backdrop.hide();
 
@@ -3315,7 +3315,7 @@ class Offcanvas extends BaseComponent {
 
   _initializeBackDrop() {
     return new Backdrop({
-      className: CLASS_NAME_BACKDROP,
+      className: className_NAME_BACKDROP,
       isVisible: this._config.backdrop,
       isAnimated: true,
       rootElement: this._element.parentNode,
@@ -3446,7 +3446,7 @@ const allowedAttribute = (attr, allowedAttributeList) => {
 
 const DefaultAllowlist = {
   // Global attributes allowed on any supplied element below.
-  '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
+  '*': ['className', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
   a: ['target', 'href', 'title', 'rel'],
   area: [],
   b: [],
@@ -3527,7 +3527,7 @@ function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
 const NAME$4 = 'tooltip';
 const DATA_KEY$4 = 'bs.tooltip';
 const EVENT_KEY$4 = `.${DATA_KEY$4}`;
-const CLASS_PREFIX$1 = 'bs-tooltip';
+const className_PREFIX$1 = 'bs-tooltip';
 const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
 const DefaultType$3 = {
   animation: 'boolean',
@@ -3542,7 +3542,7 @@ const DefaultType$3 = {
   container: '(string|element|boolean)',
   fallbackPlacements: 'array',
   boundary: '(string|element)',
-  customClass: '(string|function)',
+  customclassName: '(string|function)',
   sanitize: 'boolean',
   sanitizeFn: '(null|function)',
   allowList: 'object',
@@ -3557,7 +3557,7 @@ const AttachmentMap = {
 };
 const Default$3 = {
   animation: true,
-  template: '<div class="tooltip" role="tooltip">' + '<div class="tooltip-arrow"></div>' + '<div class="tooltip-inner"></div>' + '</div>',
+  template: '<div className="tooltip" role="tooltip">' + '<div className="tooltip-arrow"></div>' + '<div className="tooltip-inner"></div>' + '</div>',
   trigger: 'hover focus',
   title: '',
   delay: 0,
@@ -3568,7 +3568,7 @@ const Default$3 = {
   container: false,
   fallbackPlacements: ['top', 'right', 'bottom', 'left'],
   boundary: 'clippingParents',
-  customClass: '',
+  customclassName: '',
   sanitize: true,
   sanitizeFn: null,
   allowList: DefaultAllowlist,
@@ -3586,13 +3586,13 @@ const Event$2 = {
   MOUSEENTER: `mouseenter${EVENT_KEY$4}`,
   MOUSELEAVE: `mouseleave${EVENT_KEY$4}`
 };
-const CLASS_NAME_FADE$2 = 'fade';
-const CLASS_NAME_MODAL = 'modal';
-const CLASS_NAME_SHOW$2 = 'show';
+const className_NAME_FADE$2 = 'fade';
+const className_NAME_MODAL = 'modal';
+const className_NAME_SHOW$2 = 'show';
 const HOVER_STATE_SHOW = 'show';
 const HOVER_STATE_OUT = 'out';
 const SELECTOR_TOOLTIP_INNER = '.tooltip-inner';
-const SELECTOR_MODAL = `.${CLASS_NAME_MODAL}`;
+const SELECTOR_MODAL = `.${className_NAME_MODAL}`;
 const EVENT_MODAL_HIDE = 'hide.bs.modal';
 const TRIGGER_HOVER = 'hover';
 const TRIGGER_FOCUS = 'focus';
@@ -3600,11 +3600,11 @@ const TRIGGER_CLICK = 'click';
 const TRIGGER_MANUAL = 'manual';
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Tooltip extends BaseComponent {
+className Tooltip extends BaseComponent {
   constructor(element, config) {
     if (typeof Popper === 'undefined') {
       throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org)');
@@ -3670,7 +3670,7 @@ class Tooltip extends BaseComponent {
         context._leave(null, context);
       }
     } else {
-      if (this.getTipElement().classList.contains(CLASS_NAME_SHOW$2)) {
+      if (this.getTipElement().classNameList.contains(className_NAME_SHOW$2)) {
         this._leave(null, this);
 
         return;
@@ -3726,14 +3726,14 @@ class Tooltip extends BaseComponent {
     this._element.setAttribute('aria-describedby', tipId);
 
     if (this._config.animation) {
-      tip.classList.add(CLASS_NAME_FADE$2);
+      tip.classNameList.add(className_NAME_FADE$2);
     }
 
     const placement = typeof this._config.placement === 'function' ? this._config.placement.call(this, tip, this._element) : this._config.placement;
 
     const attachment = this._getAttachment(placement);
 
-    this._addAttachmentClass(attachment);
+    this._addAttachmentclassName(attachment);
 
     const {
       container
@@ -3751,12 +3751,12 @@ class Tooltip extends BaseComponent {
       this._popper = Popper.createPopper(this._element, tip, this._getPopperConfig(attachment));
     }
 
-    tip.classList.add(CLASS_NAME_SHOW$2);
+    tip.classNameList.add(className_NAME_SHOW$2);
 
-    const customClass = this._resolvePossibleFunction(this._config.customClass);
+    const customclassName = this._resolvePossibleFunction(this._config.customclassName);
 
-    if (customClass) {
-      tip.classList.add(...customClass.split(' '));
+    if (customclassName) {
+      tip.classNameList.add(...customclassName.split(' '));
     } // If this is a touch-enabled device we add extra
     // empty mouseover listeners to the body's immediate children;
     // only needed because of broken event delegation on iOS
@@ -3779,7 +3779,7 @@ class Tooltip extends BaseComponent {
       }
     };
 
-    const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE$2);
+    const isAnimated = this.tip.classNameList.contains(className_NAME_FADE$2);
 
     this._queueCallback(complete, this.tip, isAnimated);
   }
@@ -3800,7 +3800,7 @@ class Tooltip extends BaseComponent {
         tip.remove();
       }
 
-      this._cleanTipClass();
+      this._cleanTipclassName();
 
       this._element.removeAttribute('aria-describedby');
 
@@ -3815,7 +3815,7 @@ class Tooltip extends BaseComponent {
       return;
     }
 
-    tip.classList.remove(CLASS_NAME_SHOW$2); // If this is a touch-enabled device we remove the extra
+    tip.classNameList.remove(className_NAME_SHOW$2); // If this is a touch-enabled device we remove the extra
     // empty mouseover listeners we added for iOS support
 
     if ('ontouchstart' in document.documentElement) {
@@ -3825,7 +3825,7 @@ class Tooltip extends BaseComponent {
     this._activeTrigger[TRIGGER_CLICK] = false;
     this._activeTrigger[TRIGGER_FOCUS] = false;
     this._activeTrigger[TRIGGER_HOVER] = false;
-    const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE$2);
+    const isAnimated = this.tip.classNameList.contains(className_NAME_FADE$2);
 
     this._queueCallback(complete, this.tip, isAnimated);
 
@@ -3852,7 +3852,7 @@ class Tooltip extends BaseComponent {
     element.innerHTML = this._config.template;
     const tip = element.children[0];
     this.setContent(tip);
-    tip.classList.remove(CLASS_NAME_FADE$2, CLASS_NAME_SHOW$2);
+    tip.classNameList.remove(className_NAME_FADE$2, className_NAME_SHOW$2);
     this.tip = tip;
     return this.tip;
   }
@@ -3987,8 +3987,8 @@ class Tooltip extends BaseComponent {
     };
   }
 
-  _addAttachmentClass(attachment) {
-    this.getTipElement().classList.add(`${this._getBasicClassPrefix()}-${this.updateAttachment(attachment)}`);
+  _addAttachmentclassName(attachment) {
+    this.getTipElement().classNameList.add(`${this._getBasicclassNamePrefix()}-${this.updateAttachment(attachment)}`);
   }
 
   _getAttachment(placement) {
@@ -4050,7 +4050,7 @@ class Tooltip extends BaseComponent {
       context._activeTrigger[event.type === 'focusin' ? TRIGGER_FOCUS : TRIGGER_HOVER] = true;
     }
 
-    if (context.getTipElement().classList.contains(CLASS_NAME_SHOW$2) || context._hoverState === HOVER_STATE_SHOW) {
+    if (context.getTipElement().classNameList.contains(className_NAME_SHOW$2) || context._hoverState === HOVER_STATE_SHOW) {
       context._hoverState = HOVER_STATE_SHOW;
       return;
     }
@@ -4158,18 +4158,18 @@ class Tooltip extends BaseComponent {
     return config;
   }
 
-  _cleanTipClass() {
+  _cleanTipclassName() {
     const tip = this.getTipElement();
-    const basicClassPrefixRegex = new RegExp(`(^|\\s)${this._getBasicClassPrefix()}\\S+`, 'g');
-    const tabClass = tip.getAttribute('class').match(basicClassPrefixRegex);
+    const basicclassNamePrefixRegex = new RegExp(`(^|\\s)${this._getBasicclassNamePrefix()}\\S+`, 'g');
+    const tabclassName = tip.getAttribute('className').match(basicclassNamePrefixRegex);
 
-    if (tabClass !== null && tabClass.length > 0) {
-      tabClass.map(token => token.trim()).forEach(tClass => tip.classList.remove(tClass));
+    if (tabclassName !== null && tabclassName.length > 0) {
+      tabclassName.map(token => token.trim()).forEach(tclassName => tip.classNameList.remove(tclassName));
     }
   }
 
-  _getBasicClassPrefix() {
-    return CLASS_PREFIX$1;
+  _getBasicclassNamePrefix() {
+    return className_PREFIX$1;
   }
 
   _handlePopperPlacementChange(popperData) {
@@ -4183,9 +4183,9 @@ class Tooltip extends BaseComponent {
 
     this.tip = state.elements.popper;
 
-    this._cleanTipClass();
+    this._cleanTipclassName();
 
-    this._addAttachmentClass(this._getAttachment(state.placement));
+    this._addAttachmentclassName(this._getAttachment(state.placement));
   }
 
   _disposePopper() {
@@ -4237,13 +4237,13 @@ defineJQueryPlugin(Tooltip);
 const NAME$3 = 'popover';
 const DATA_KEY$3 = 'bs.popover';
 const EVENT_KEY$3 = `.${DATA_KEY$3}`;
-const CLASS_PREFIX = 'bs-popover';
+const className_PREFIX = 'bs-popover';
 const Default$2 = { ...Tooltip.Default,
   placement: 'right',
   offset: [0, 8],
   trigger: 'click',
   content: '',
-  template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div>' + '</div>'
+  template: '<div className="popover" role="tooltip">' + '<div className="popover-arrow"></div>' + '<h3 className="popover-header"></h3>' + '<div className="popover-body"></div>' + '</div>'
 };
 const DefaultType$2 = { ...Tooltip.DefaultType,
   content: '(string|element|function)'
@@ -4264,11 +4264,11 @@ const SELECTOR_TITLE = '.popover-header';
 const SELECTOR_CONTENT = '.popover-body';
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Popover extends Tooltip {
+className Popover extends Tooltip {
   // Getters
   static get Default() {
     return Default$2;
@@ -4302,8 +4302,8 @@ class Popover extends Tooltip {
     return this._resolvePossibleFunction(this._config.content);
   }
 
-  _getBasicClassPrefix() {
-    return CLASS_PREFIX;
+  _getBasicclassNamePrefix() {
+    return className_PREFIX;
   } // Static
 
 
@@ -4361,25 +4361,25 @@ const DefaultType$1 = {
 const EVENT_ACTIVATE = `activate${EVENT_KEY$2}`;
 const EVENT_SCROLL = `scroll${EVENT_KEY$2}`;
 const EVENT_LOAD_DATA_API = `load${EVENT_KEY$2}${DATA_API_KEY$1}`;
-const CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
-const CLASS_NAME_ACTIVE$1 = 'active';
+const className_NAME_DROPDOWN_ITEM = 'dropdown-item';
+const className_NAME_ACTIVE$1 = 'active';
 const SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
 const SELECTOR_NAV_LIST_GROUP$1 = '.nav, .list-group';
 const SELECTOR_NAV_LINKS = '.nav-link';
 const SELECTOR_NAV_ITEMS = '.nav-item';
 const SELECTOR_LIST_ITEMS = '.list-group-item';
-const SELECTOR_LINK_ITEMS = `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}, .${CLASS_NAME_DROPDOWN_ITEM}`;
+const SELECTOR_LINK_ITEMS = `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}, .${className_NAME_DROPDOWN_ITEM}`;
 const SELECTOR_DROPDOWN$1 = '.dropdown';
 const SELECTOR_DROPDOWN_TOGGLE$1 = '.dropdown-toggle';
 const METHOD_OFFSET = 'offset';
 const METHOD_POSITION = 'position';
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class ScrollSpy extends BaseComponent {
+className ScrollSpy extends BaseComponent {
   constructor(element, config) {
     super(element);
     this._scrollElement = this._element.tagName === 'BODY' ? window : this._element;
@@ -4505,18 +4505,18 @@ class ScrollSpy extends BaseComponent {
 
     const queries = SELECTOR_LINK_ITEMS.split(',').map(selector => `${selector}[data-bs-target="${target}"],${selector}[href="${target}"]`);
     const link = SelectorEngine.findOne(queries.join(','), this._config.target);
-    link.classList.add(CLASS_NAME_ACTIVE$1);
+    link.classNameList.add(className_NAME_ACTIVE$1);
 
-    if (link.classList.contains(CLASS_NAME_DROPDOWN_ITEM)) {
-      SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE$1, link.closest(SELECTOR_DROPDOWN$1)).classList.add(CLASS_NAME_ACTIVE$1);
+    if (link.classNameList.contains(className_NAME_DROPDOWN_ITEM)) {
+      SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE$1, link.closest(SELECTOR_DROPDOWN$1)).classNameList.add(className_NAME_ACTIVE$1);
     } else {
       SelectorEngine.parents(link, SELECTOR_NAV_LIST_GROUP$1).forEach(listGroup => {
         // Set triggered links parents as active
         // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
-        SelectorEngine.prev(listGroup, `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}`).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1)); // Handle special case when .nav-link is inside .nav-item
+        SelectorEngine.prev(listGroup, `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}`).forEach(item => item.classNameList.add(className_NAME_ACTIVE$1)); // Handle special case when .nav-link is inside .nav-item
 
         SelectorEngine.prev(listGroup, SELECTOR_NAV_ITEMS).forEach(navItem => {
-          SelectorEngine.children(navItem, SELECTOR_NAV_LINKS).forEach(item => item.classList.add(CLASS_NAME_ACTIVE$1));
+          SelectorEngine.children(navItem, SELECTOR_NAV_LINKS).forEach(item => item.classNameList.add(className_NAME_ACTIVE$1));
         });
       });
     }
@@ -4527,7 +4527,7 @@ class ScrollSpy extends BaseComponent {
   }
 
   _clear() {
-    SelectorEngine.find(SELECTOR_LINK_ITEMS, this._config.target).filter(node => node.classList.contains(CLASS_NAME_ACTIVE$1)).forEach(node => node.classList.remove(CLASS_NAME_ACTIVE$1));
+    SelectorEngine.find(SELECTOR_LINK_ITEMS, this._config.target).filter(node => node.classNameList.contains(className_NAME_ACTIVE$1)).forEach(node => node.classNameList.remove(className_NAME_ACTIVE$1));
   } // Static
 
 
@@ -4588,10 +4588,10 @@ const EVENT_HIDDEN$1 = `hidden${EVENT_KEY$1}`;
 const EVENT_SHOW$1 = `show${EVENT_KEY$1}`;
 const EVENT_SHOWN$1 = `shown${EVENT_KEY$1}`;
 const EVENT_CLICK_DATA_API = `click${EVENT_KEY$1}${DATA_API_KEY}`;
-const CLASS_NAME_DROPDOWN_MENU = 'dropdown-menu';
-const CLASS_NAME_ACTIVE = 'active';
-const CLASS_NAME_FADE$1 = 'fade';
-const CLASS_NAME_SHOW$1 = 'show';
+const className_NAME_DROPDOWN_MENU = 'dropdown-menu';
+const className_NAME_ACTIVE = 'active';
+const className_NAME_FADE$1 = 'fade';
+const className_NAME_SHOW$1 = 'show';
 const SELECTOR_DROPDOWN = '.dropdown';
 const SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
 const SELECTOR_ACTIVE = '.active';
@@ -4601,11 +4601,11 @@ const SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
 const SELECTOR_DROPDOWN_ACTIVE_CHILD = ':scope > .dropdown-menu .active';
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Tab extends BaseComponent {
+className Tab extends BaseComponent {
   // Getters
   static get NAME() {
     return NAME$1;
@@ -4613,7 +4613,7 @@ class Tab extends BaseComponent {
 
 
   show() {
-    if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && this._element.classList.contains(CLASS_NAME_ACTIVE)) {
+    if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && this._element.classNameList.contains(className_NAME_ACTIVE)) {
       return;
     }
 
@@ -4661,12 +4661,12 @@ class Tab extends BaseComponent {
   _activate(element, container, callback) {
     const activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? SelectorEngine.find(SELECTOR_ACTIVE_UL, container) : SelectorEngine.children(container, SELECTOR_ACTIVE);
     const active = activeElements[0];
-    const isTransitioning = callback && active && active.classList.contains(CLASS_NAME_FADE$1);
+    const isTransitioning = callback && active && active.classNameList.contains(className_NAME_FADE$1);
 
     const complete = () => this._transitionComplete(element, active, callback);
 
     if (active && isTransitioning) {
-      active.classList.remove(CLASS_NAME_SHOW$1);
+      active.classNameList.remove(className_NAME_SHOW$1);
 
       this._queueCallback(complete, element, true);
     } else {
@@ -4676,11 +4676,11 @@ class Tab extends BaseComponent {
 
   _transitionComplete(element, active, callback) {
     if (active) {
-      active.classList.remove(CLASS_NAME_ACTIVE);
+      active.classNameList.remove(className_NAME_ACTIVE);
       const dropdownChild = SelectorEngine.findOne(SELECTOR_DROPDOWN_ACTIVE_CHILD, active.parentNode);
 
       if (dropdownChild) {
-        dropdownChild.classList.remove(CLASS_NAME_ACTIVE);
+        dropdownChild.classNameList.remove(className_NAME_ACTIVE);
       }
 
       if (active.getAttribute('role') === 'tab') {
@@ -4688,7 +4688,7 @@ class Tab extends BaseComponent {
       }
     }
 
-    element.classList.add(CLASS_NAME_ACTIVE);
+    element.classNameList.add(className_NAME_ACTIVE);
 
     if (element.getAttribute('role') === 'tab') {
       element.setAttribute('aria-selected', true);
@@ -4696,8 +4696,8 @@ class Tab extends BaseComponent {
 
     reflow(element);
 
-    if (element.classList.contains(CLASS_NAME_FADE$1)) {
-      element.classList.add(CLASS_NAME_SHOW$1);
+    if (element.classNameList.contains(className_NAME_FADE$1)) {
+      element.classNameList.add(className_NAME_SHOW$1);
     }
 
     let parent = element.parentNode;
@@ -4706,11 +4706,11 @@ class Tab extends BaseComponent {
       parent = parent.parentNode;
     }
 
-    if (parent && parent.classList.contains(CLASS_NAME_DROPDOWN_MENU)) {
+    if (parent && parent.classNameList.contains(className_NAME_DROPDOWN_MENU)) {
       const dropdownElement = element.closest(SELECTOR_DROPDOWN);
 
       if (dropdownElement) {
-        SelectorEngine.find(SELECTOR_DROPDOWN_TOGGLE, dropdownElement).forEach(dropdown => dropdown.classList.add(CLASS_NAME_ACTIVE));
+        SelectorEngine.find(SELECTOR_DROPDOWN_TOGGLE, dropdownElement).forEach(dropdown => dropdown.classNameList.add(className_NAME_ACTIVE));
       }
 
       element.setAttribute('aria-expanded', true);
@@ -4788,11 +4788,11 @@ const EVENT_HIDE = `hide${EVENT_KEY}`;
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
 const EVENT_SHOW = `show${EVENT_KEY}`;
 const EVENT_SHOWN = `shown${EVENT_KEY}`;
-const CLASS_NAME_FADE = 'fade';
-const CLASS_NAME_HIDE = 'hide'; // @deprecated - kept here only for backwards compatibility
+const className_NAME_FADE = 'fade';
+const className_NAME_HIDE = 'hide'; // @deprecated - kept here only for backwards compatibility
 
-const CLASS_NAME_SHOW = 'show';
-const CLASS_NAME_SHOWING = 'showing';
+const className_NAME_SHOW = 'show';
+const className_NAME_SHOWING = 'showing';
 const DefaultType = {
   animation: 'boolean',
   autohide: 'boolean',
@@ -4805,11 +4805,11 @@ const Default = {
 };
 /**
  * ------------------------------------------------------------------------
- * Class Definition
+ * className Definition
  * ------------------------------------------------------------------------
  */
 
-class Toast extends BaseComponent {
+className Toast extends BaseComponent {
   constructor(element, config) {
     super(element);
     this._config = this._getConfig(config);
@@ -4844,31 +4844,31 @@ class Toast extends BaseComponent {
     this._clearTimeout();
 
     if (this._config.animation) {
-      this._element.classList.add(CLASS_NAME_FADE);
+      this._element.classNameList.add(className_NAME_FADE);
     }
 
     const complete = () => {
-      this._element.classList.remove(CLASS_NAME_SHOWING);
+      this._element.classNameList.remove(className_NAME_SHOWING);
 
       EventHandler.trigger(this._element, EVENT_SHOWN);
 
       this._maybeScheduleHide();
     };
 
-    this._element.classList.remove(CLASS_NAME_HIDE); // @deprecated
+    this._element.classNameList.remove(className_NAME_HIDE); // @deprecated
 
 
     reflow(this._element);
 
-    this._element.classList.add(CLASS_NAME_SHOW);
+    this._element.classNameList.add(className_NAME_SHOW);
 
-    this._element.classList.add(CLASS_NAME_SHOWING);
+    this._element.classNameList.add(className_NAME_SHOWING);
 
     this._queueCallback(complete, this._element, this._config.animation);
   }
 
   hide() {
-    if (!this._element.classList.contains(CLASS_NAME_SHOW)) {
+    if (!this._element.classNameList.contains(className_NAME_SHOW)) {
       return;
     }
 
@@ -4879,17 +4879,17 @@ class Toast extends BaseComponent {
     }
 
     const complete = () => {
-      this._element.classList.add(CLASS_NAME_HIDE); // @deprecated
+      this._element.classNameList.add(className_NAME_HIDE); // @deprecated
 
 
-      this._element.classList.remove(CLASS_NAME_SHOWING);
+      this._element.classNameList.remove(className_NAME_SHOWING);
 
-      this._element.classList.remove(CLASS_NAME_SHOW);
+      this._element.classNameList.remove(className_NAME_SHOW);
 
       EventHandler.trigger(this._element, EVENT_HIDDEN);
     };
 
-    this._element.classList.add(CLASS_NAME_SHOWING);
+    this._element.classNameList.add(className_NAME_SHOWING);
 
     this._queueCallback(complete, this._element, this._config.animation);
   }
@@ -4897,8 +4897,8 @@ class Toast extends BaseComponent {
   dispose() {
     this._clearTimeout();
 
-    if (this._element.classList.contains(CLASS_NAME_SHOW)) {
-      this._element.classList.remove(CLASS_NAME_SHOW);
+    if (this._element.classNameList.contains(className_NAME_SHOW)) {
+      this._element.classNameList.remove(className_NAME_SHOW);
     }
 
     super.dispose();
