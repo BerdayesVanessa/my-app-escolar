@@ -260,33 +260,35 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                 </label>
               </div>
             </div>
-
-            <div className="col-3">
-              <div className="form-group">
-                <label htmlFor="name">
-                  Escolaridade
-                  <input
-                    type="text"
-                    name="escolaridade"
-                    placeholder="Digite sua escolaridade"
-                    className="form-control"
-                    onChange={handleChange}
-                    value={form.escolaridade}
-                  />
-                </label>
+          </div>
+          <br />
+            <div className="row">
+              <div className="col-3">
+                <div className="form-group">
+                  <label htmlFor="name">
+                    Escolaridade
+                    <input
+                      type="text"
+                      name="escolaridade"
+                      placeholder="Digite sua escolaridade"
+                      className="form-control"
+                      onChange={handleChange}
+                      value={form.escolaridade}
+                    />
+                  </label>
+                </div>
               </div>
-            </div>
 
-            <div className="col-3">
-              <div className="form-group align-self-start mr-3">
-                <img
-                  src=""
-                  className="rounded-circle align-self-start mr-3"
-                  width="100"
-                  alt="Foto da pessoa"
-                ></img>
+              <div className="col-3">
+                <div className="form-group align-self-start mr-3">
+                  <img
+                    src=""
+                    className="rounded-circle align-self-start mr-3"
+                    width="100"
+                    alt="Foto da pessoa"
+                  ></img>
+                </div>
               </div>
-            </div>
           </div>
 
           <br />
