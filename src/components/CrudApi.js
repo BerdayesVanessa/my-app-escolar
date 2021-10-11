@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter, NavLink, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { helpHttp } from "./helpers/helpHttp";
 import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
@@ -102,7 +102,7 @@ const CrudApi = () => {
 
   return (
     <div className="container-fluid">
-      <HashRouter basename="VGKA">
+      <BrowserRouter basename="VGKA">
         <header>
           <Header />
         </header>
@@ -147,7 +147,7 @@ const CrudApi = () => {
           <div>
           <Footer />
           </div>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 };

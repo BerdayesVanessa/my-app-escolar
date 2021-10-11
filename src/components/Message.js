@@ -11,7 +11,7 @@ const Message = ({ msg, bgColor }) => {
   };
 
   return (
-    <div style={styles}>
+    <div className="container-fluid" style={styles}>
       {/* <p>{msg}</p> */}
       <p dangerouslySetInnerHTML={{ __html: msg }} />
     </div>

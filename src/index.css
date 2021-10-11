@@ -19,11 +19,23 @@
     padding: 10px;
   }
   
-  .nav-link {
-    color: black;
-  
+  a.nav-link{
+    color: white;
   }
+
+  a.nav-link:visited{
+    color: white;
+  }
+
+  /* .nav-link:focus{
+    color: white;
+  } 
   
+  .nav-link:hover {
+    color: white;
+   
+  } */
+
   .header {
     background-color: white; 
   }
