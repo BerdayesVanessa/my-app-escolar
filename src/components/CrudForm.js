@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { HashRouter, NavLink, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const initailForm = {
@@ -75,7 +75,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
     <div className="container-fluid">
       <br />
       <div className="container-fluid">
-        <h3>{dataToEdit ? "Editar" : ""}</h3>
+        <h3>{dataToEdit ? "": ""}</h3>
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-6">

@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, NavLink, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Header(){

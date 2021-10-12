@@ -30,8 +30,8 @@
       "id": 1633961803094
     },
     {
-      "name": "Ana Campos Araújo",
-      "cpf": "324-671-247-31",
+      "name": "Ana Campos ",
+      "cpf": "324.671.247-31",
       "nascimento": "2011-06-15",
       "pais": "Brasil",
       "genero": "feminino",
@@ -41,19 +41,6 @@
       "escolaridade": "Superior",
       "uf": "Minas Gerais",
       "id": 1633962176190
-    },
-    {
-      "name": "ddd",
-      "cpf": "d",
-      "nascimento": "2021-10-18",
-      "pais": "d",
-      "genero": "não informar",
-      "email": "d",
-      "telefone": "d",
-      "localidade": "d",
-      "escolaridade": "d",
-      "uf": "d",
-      "id": 1633970210099
     }
   ],
   "dados-profissionais": [

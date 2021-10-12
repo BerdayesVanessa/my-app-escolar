@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { HashRouter, NavLink, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import VGKA from "../assets/img/VGKA.jpg";
 import Vanessa from "../assets/img/Vanessa.jpg";
 import Gilberto1 from "../assets/img/Gilberto1.jpg";
@@ -34,7 +34,7 @@ export default function Home(){
 
                 <div className="col-sm-3">
                     <img src={Katherine} className="imagem__principal" alt="imagem da Vanessa"></img>
-                    <h5 className="nome">Katherine Villa</h5>
+                    <h5 className="nome">Katherine Villaparedes</h5>
                 </div>
 
                 <div className="col-sm-3">
