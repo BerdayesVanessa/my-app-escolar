@@ -13,6 +13,7 @@ const initailForm = {
   telefone: "",
   localidade: "",
   escolaridade: "",
+  curso:"",
   uf: "",
   id: null
 };
@@ -45,14 +46,11 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
       !form.cpf ||
       !form.nascimento ||
       !form.pais ||
-      !form.genero ||
       !form.email ||
-      !form.telefone ||
       !form.localidade ||
-      !form.escolaridade ||
-      !form.uf
+      !form.escolaridade
     ) {
-      alert("Dados incompletos");
+      alert ("Dados incompletos");
       return;
     }
 
@@ -78,7 +76,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
         <h3>{dataToEdit ? "": ""}</h3>
         <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-6">
+          <div className="col-6">
               <div className="form-group">
                 <label htmlFor="name">
                   Nome completo
@@ -214,7 +212,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                 <label htmlFor="name">
                   Telefone
                   <input
-                    type="text"
+                    type="tel"
                     name="telefone"
                     className="form-control"
                     placeholder="(22) 22222-2222"
@@ -260,10 +258,8 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                 </label>
               </div>
             </div>
-          </div>
-          <br />
-            <div className="row">
-              <div className="col-3">
+
+            <div className="col-3">
                 <div className="form-group">
                   <label htmlFor="name">
                     Escolaridade
@@ -277,20 +273,24 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                     />
                   </label>
                 </div>
-              </div>
-
-              <div className="col-3">
-                <div className="form-group align-self-start mr-3">
-                  <img
-                    src=""
-                    className="rounded-circle align-self-start mr-3"
-                    width="100"
-                    alt="Foto da pessoa"
-                  ></img>
-                </div>
-              </div>
           </div>
 
+          <div className="col-3">
+                <div className="form-group">
+                  <label htmlFor="name">
+                    Curso
+                    <input
+                      type="text"
+                      name="curso"
+                      placeholder="Digite seu curso"
+                      className="form-control"
+                      onChange={handleChange}
+                      value={form.curso}
+                    />
+                  </label>
+                </div>
+          </div>
+        </div>
           <br />
 
           <div className="col-12">
@@ -302,12 +302,6 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                   value="Cadastrar"
                 />{" "}
                 {""}
-                <input
-                  className="btn btn-secondary"
-                  type="reset"
-                  value="Limpar"
-                  onClick={handleReset}
-                />
               </div>
             </div>
           </div>

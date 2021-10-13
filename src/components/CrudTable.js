@@ -1,6 +1,6 @@
 import React from "react";
 import CrudTableRow from "./CrudTableRow";
-import { HashRouter, NavLink, Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const CrudTable = ({ data, setDataToEdit, deleteData }) => {
@@ -18,7 +18,7 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
                 <th>Data de nascimento</th>
                 <th>País</th>
                 <th>Email</th>
-                <th>Telefone</th>
+                {/* <th>Telefone</th> */}
                 <th>Localidade</th>
                 <th>Escolaridade</th>
               </tr>

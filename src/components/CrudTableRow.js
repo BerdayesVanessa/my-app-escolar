@@ -10,7 +10,7 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
     nascimento,
     pais,
     email,
-    telefone,
+    // telefone,
     localidade,
     escolaridade
   } = el;
@@ -30,7 +30,7 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
       <td>{nascimento}</td>
       <td>{pais}</td>
       <td>{email}</td>
-      <td>{telefone}</td>
+      {/* <td>{telefone}</td> */}
       <td>{localidade}</td>
       <td>{escolaridade}</td>
  
